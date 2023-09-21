@@ -14,9 +14,10 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARPlaneManager))]
 public class AnchorCreator : MonoBehaviour
 {
+    private bool hasInstantiated = false;
+
     // This is the prefab that will appear every time an anchor is created.
-    [SerializeField]
-    GameObject m_AnchorPrefab;
+    [SerializeField] GameObject m_AnchorPrefab;
 
     public GameObject AnchorPrefab
     {
@@ -31,6 +32,7 @@ public class AnchorCreator : MonoBehaviour
         {
             Destroy(anchor);
         }
+
         m_AnchorPoints.Clear();
     }
 
@@ -69,7 +71,13 @@ public class AnchorCreator : MonoBehaviour
             // This prefab instance is parented to the anchor to make sure the position of the prefab is consistent
             // with the anchor, since an anchor attached to an ARPlane will be updated automatically by the ARAnchorManager as the ARPlane's exact position is refined.
             var anchor = m_AnchorManager.AttachAnchor(hitPlane, hitPose);
-            Instantiate(m_AnchorPrefab, anchor.transform);
+
+            if (!hasInstantiated)
+            {
+                // Stores the anchor so that it may be removed later.
+                Instantiate(m_AnchorPrefab, anchor.transform);
+                hasInstantiated = true;
+            }
 
             if (anchor == null)
             {
@@ -77,8 +85,8 @@ public class AnchorCreator : MonoBehaviour
             }
             else
             {
-                // Stores the anchor so that it may be removed later.
                 m_AnchorPoints.Add(anchor);
+              
             }
         }
     }
