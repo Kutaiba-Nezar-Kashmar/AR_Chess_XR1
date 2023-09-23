@@ -18,7 +18,8 @@ public class Chessboard : MonoBehaviour
 {
     void HandleFingerTap(Lean.Touch.LeanFinger finger)
     {
-        Debug.Log("You just tapped the screen with finger " + finger.Index + " at " + finger.ScreenPosition);
+        Debug.Log("You just tapped the screen with finger " + finger.Index +
+                  " at " + finger.ScreenPosition);
     }
 
     private void OnEnable()
@@ -85,9 +86,11 @@ public class Chessboard : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            var touch = Input.GetTouch(0);
-            var touchPosition = touch.position;
-            if (touch.phase is TouchPhase.Began)
+            /*var touch = Input.GetTouch(0);
+            var touchPosition = touch.position;*/
+            var touch = Input.touches[0];
+            var touchPosition = Input.touches[0].position;
+            if (Input.touches[0].phase == TouchPhase.Began)
             {
                 RaycastHit info;
                 if (Camera.main == null)
@@ -96,15 +99,16 @@ public class Chessboard : MonoBehaviour
                 }
 
                 var ray = Camera.main.ScreenPointToRay(touchPosition);
-            //    statusText.text = "position: " + touch.position.ToString();
+                //    statusText.text = "position: " + touch.position.ToString();
 
                 if (Physics.Raycast(ray, out info, 100,
                         LayerMask.GetMask("Tile", "Hover", "Highlight")))
                 {
                     // Get the index of the tiles I've hit
-                    var hitPosition = LookupTileIndex(info.transform.gameObject);
+                    var hitPosition =
+                        LookupTileIndex(info.transform.gameObject);
 
-                    // If we're hovering a tile agter not hovering any tiles
+                    /*// If we're hovering a tile agter not hovering any tiles
                     if (_currentHover == -Vector2Int.one)
                     {
                         _currentHover = hitPosition;
@@ -122,47 +126,55 @@ public class Chessboard : MonoBehaviour
                         _currentHover = hitPosition;
                         _tiles[hitPosition.x, hitPosition.y].layer =
                             LayerMask.NameToLayer("Hover");
-                    }
+                    }*/
 
                     // If we press down on the mouse
-                    if (touch.phase == TouchPhase.Began)
+                    //if (touch.phase == TouchPhase.Began)
+                    //{
+                    if (_chessPieces[hitPosition.x, hitPosition.y] != null)
                     {
-                        if (_chessPieces[hitPosition.x, hitPosition.y] != null)
+                        // Is our turn
+                        if ((_chessPieces[hitPosition.x, hitPosition.y].team ==
+                             0 &&
+                             _isWhiteTurn) ||
+                            (_chessPieces[hitPosition.x, hitPosition.y].team ==
+                             1 &&
+                             !_isWhiteTurn))
                         {
-                            // Is our turn
-                            if ((_chessPieces[hitPosition.x, hitPosition.y].team == 0 &&
-                                 _isWhiteTurn) ||
-                                (_chessPieces[hitPosition.x, hitPosition.y].team == 1 &&
-                                 !_isWhiteTurn))
-                            {
-                                _currentlyDragging =
-                                    _chessPieces[hitPosition.x, hitPosition.y];
+                            _currentlyDragging =
+                                _chessPieces[hitPosition.x, hitPosition.y];
 
-                                // Get a list of where I can go, highlight as well
-                                _availableMoves =
-                                    _currentlyDragging.GetAvailableMoves(
-                                        ref _chessPieces, TILE_COUNT_X, TILE_COUNT_Y);
-                                // Get a list of special move
-                                _specialMove =
-                                    _currentlyDragging.GetSpecialMove(ref _chessPieces,
-                                        ref _moveList, ref _availableMoves);
+                            // Get a list of where I can go, highlight as well
+                            _availableMoves =
+                                _currentlyDragging.GetAvailableMoves(
+                                    ref _chessPieces, TILE_COUNT_X,
+                                    TILE_COUNT_Y);
+                            // Get a list of special move
+                            _specialMove =
+                                _currentlyDragging.GetSpecialMove(
+                                    ref _chessPieces,
+                                    ref _moveList, ref _availableMoves);
 
-                                PreventCheck();
-                                HighlightTiles();
-                            }
+                            PreventCheck();
+                            HighlightTiles();
                         }
                     }
+                    //}
 
                     // If we releasing mouse button
-                    if (_currentlyDragging != null && touch.phase == TouchPhase.Ended)
+                    if (_currentlyDragging != null &&
+                        Input.touches[0].phase == TouchPhase.Ended)
                     {
                         var previousPosition = new Vector2Int(
-                            _currentlyDragging.currentX, _currentlyDragging.currentY);
-                        var validMove = MoveTo(_currentlyDragging, hitPosition.x,
+                            _currentlyDragging.currentX,
+                            _currentlyDragging.currentY);
+                        var validMove = MoveTo(_currentlyDragging,
+                            hitPosition.x,
                             hitPosition.y);
                         if (!validMove)
                             _currentlyDragging.SetPosition(
-                                GetTileCenter(previousPosition.x, previousPosition.y));
+                                GetTileCenter(previousPosition.x,
+                                    previousPosition.y));
 
                         _currentlyDragging = null;
                         RemoveHighlightTiles();
@@ -173,14 +185,16 @@ public class Chessboard : MonoBehaviour
                     if (_currentHover != -Vector2Int.one)
                     {
                         _tiles[_currentHover.x, _currentHover.y].layer =
-                            (ContainsValidMove(ref _availableMoves, _currentHover))
+                            (ContainsValidMove(ref _availableMoves,
+                                _currentHover))
                                 ? LayerMask.NameToLayer("Highlight")
                                 : LayerMask.NameToLayer("Tile");
 
                         _currentHover = -Vector2Int.one;
                     }
 
-                    if (_currentlyDragging && touch.phase == TouchPhase.Ended)
+                    if (_currentlyDragging &&
+                        Input.touches[0].phase == TouchPhase.Ended)
                     {
                         _currentlyDragging.SetPosition(GetTileCenter(
                             _currentlyDragging.currentX,
@@ -193,11 +207,12 @@ public class Chessboard : MonoBehaviour
                 // If we are dragging a piece
                 if (_currentlyDragging)
                 {
-                    var horizontalPlane = new Plane(Vector3.up, Vector3.up * yOffset);
+                    var horizontalPlane =
+                        new Plane(Vector3.up, Vector3.up * yOffset);
                     var distance = 0.0f;
                     if (horizontalPlane.Raycast(ray, out distance))
                         _currentlyDragging.SetPosition(ray.GetPoint(distance) +
-                                                       Vector3.up * dragOffset);
+                            Vector3.up * dragOffset);
                 }
             }
         }
@@ -622,7 +637,9 @@ public class Chessboard : MonoBehaviour
             // King is under attack, can we move something to help him?
             for (int i = 0; i < defendingPieces.Count; i++)
             {
-                var defendingMoves = defendingPieces[i].GetAvailableMoves(ref _chessPieces, TILE_COUNT_X, TILE_COUNT_Y);
+                var defendingMoves = defendingPieces[i]
+                    .GetAvailableMoves(ref _chessPieces, TILE_COUNT_X,
+                        TILE_COUNT_Y);
                 SimulateMoveForSinglePiece(defendingPieces[i],
                     ref defendingMoves, targetKing);
 

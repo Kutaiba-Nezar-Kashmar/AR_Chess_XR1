@@ -5,26 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7299a485-6da7-4f2a-8301-5b807fd14553" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AR CHESS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AR CHESS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Bishop Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Bishop Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess King Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess King Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Knight Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Knight Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Pawn Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Pawn Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Queen Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Queen Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Rook Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Rook Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExampleAssets/Prefabs/ARPlane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExampleAssets/Prefabs/ARPlane.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExampleAssets/Prefabs/Chess Board.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExampleAssets/Prefabs/Chess Board.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExampleAssets/Scripts/AnchorCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExampleAssets/Scripts/AnchorCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chessboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Chessboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AR CHESS/.idea/indexLayout.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "do_not_show_Android_plugin_suggestion": "true",
-    "git-widget-placeholder": "Setup-chess-logic",
+    "git-widget-placeholder": "touch-controls",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,9 +61,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\kaspe\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\kaspe\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\kaspe\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\kkash\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\kkash\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\kkash\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -136,6 +125,7 @@
       <workItem from="1695294263717" duration="9288000" />
       <workItem from="1695306299070" duration="1538000" />
       <workItem from="1695456563802" duration="7366000" />
+      <workItem from="1695466235508" duration="25000" />
     </task>
     <servers />
   </component>

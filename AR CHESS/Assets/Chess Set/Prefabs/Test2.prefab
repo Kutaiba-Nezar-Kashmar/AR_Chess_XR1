@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4384549188057958007
+--- !u!1 &3086136947302071096
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,131 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4714464573443834696}
-  - component: {fileID: 7640145404384691021}
-  - component: {fileID: 3769448128294896155}
+  - component: {fileID: 2818492414873357202}
+  - component: {fileID: 2107374313856639329}
   m_Layer: 0
-  m_Name: Chess Board Surround
+  m_Name: Test2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4714464573443834696
+--- !u!4 &2818492414873357202
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4384549188057958007}
+  m_GameObject: {fileID: 3086136947302071096}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8868975791394418734}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7640145404384691021
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4384549188057958007}
-  m_Mesh: {fileID: 4300002, guid: c46a2a53be8b37640bf69647b314cae6, type: 3}
---- !u!23 &3769448128294896155
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4384549188057958007}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 19a7f7dd4f56bdb4cbbd019b9a6bbf26, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &9105404771066515299
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8868975791394418734}
-  - component: {fileID: 1618141871878776015}
-  m_Layer: 0
-  m_Name: Chess Board - Copy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8868975791394418734
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9105404771066515299}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.45053977, y: -0.095888875, z: 0.40096033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4460253301730044048}
-  - {fileID: 4714464573443834696}
+  - {fileID: 1061405918314369275}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &1618141871878776015
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2107374313856639329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9105404771066515299}
+  m_GameObject: {fileID: 3086136947302071096}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9511cb7e5583a0e47b1b064d9ce60843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dark: {fileID: 0}
-  light: {fileID: 0}
-  tileSize: 0.09
-  yOffset: 0.05
+  tileMaterial: {fileID: 0}
+  tileSize: 1
+  yOffset: 0.2
   boardCenter: {x: 0, y: 0, z: 0}
   prefabs:
   - {fileID: 1000014207659374, guid: 61ed95d5d9afc0842b0c4d0c96678d38, type: 3}
@@ -142,20 +57,20 @@ MonoBehaviour:
   - {fileID: 1000011492277074, guid: 99331e88befbef94bbad253e659776ba, type: 3}
   - {fileID: 1000013427829390, guid: 1700328aaf96fd243a71d862897619a4, type: 3}
   materials:
-  - {fileID: 2100000, guid: f88cec2b5aedb4543a1990b549e7ddc1, type: 2}
-  - {fileID: 2100000, guid: e93d06779c86774419a03a7db3f91039, type: 2}
+  - {fileID: 8808940753066210417, guid: de4da3906a001624fabcc7838ddf2eb4, type: 3}
+  - {fileID: 2100000, guid: 19a7f7dd4f56bdb4cbbd019b9a6bbf26, type: 2}
   deathSize: 1.5
   deathSpacing: 0.3
   dragOffset: 1.5
   victoryScreen: {fileID: 0}
   statusText: {fileID: 0}
---- !u!1001 &7393625050439740437
+--- !u!1001 &6181104174078497918
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8868975791394418734}
+    m_TransformParent: {fileID: 2818492414873357202}
     m_Modifications:
     - target: {fileID: 4009649323751682307, guid: 28e421fd86227274ba99f5158a7b3179,
         type: 3}
@@ -217,9 +132,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28e421fd86227274ba99f5158a7b3179, type: 3}
---- !u!4 &4460253301730044048 stripped
+--- !u!4 &1061405918314369275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6592546858801955973, guid: 28e421fd86227274ba99f5158a7b3179,
     type: 3}
-  m_PrefabInstance: {fileID: 7393625050439740437}
+  m_PrefabInstance: {fileID: 6181104174078497918}
   m_PrefabAsset: {fileID: 0}
