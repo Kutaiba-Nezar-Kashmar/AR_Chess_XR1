@@ -15,7 +15,6 @@ using UnityEngine.XR.ARSubsystems;
 public class AnchorCreator : MonoBehaviour
 {
     private bool hasInstantiated = false;
-
     // This is the prefab that will appear every time an anchor is created.
     [SerializeField] GameObject m_AnchorPrefab;
 
@@ -50,6 +49,11 @@ public class AnchorCreator : MonoBehaviour
 
     void Update()
     {
+        if (hasInstantiated)
+        {
+            return;
+        }
+        
         // If there is no tap, then simply do nothing until the next call to Update().
         if (Input.touchCount == 0)
             return;

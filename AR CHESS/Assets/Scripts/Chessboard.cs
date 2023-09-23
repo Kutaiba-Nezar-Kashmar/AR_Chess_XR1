@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 
 public enum SpecialMove
 {
@@ -13,6 +16,21 @@ public enum SpecialMove
 
 public class Chessboard : MonoBehaviour
 {
+    void HandleFingerTap(Lean.Touch.LeanFinger finger)
+    {
+        Debug.Log("You just tapped the screen with finger " + finger.Index + " at " + finger.ScreenPosition);
+    }
+
+    private void OnEnable()
+    {
+        Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
+    }
+
+    private void OnDisable()
+    {
+        Lean.Touch.LeanTouch.OnFingerTap -= HandleFingerTap;
+    }
+
     [Header("Art")] [SerializeField] private Material tileMaterial;
 
     [SerializeField] private float tileSize = 1.0f;
@@ -29,7 +47,7 @@ public class Chessboard : MonoBehaviour
     [SerializeField] private float deathSpacing = 0.3f;
     [SerializeField] private float dragOffset = 1.5f;
     [SerializeField] private GameObject victoryScreen;
-
+    ARRaycastManager m_RaycastManager;
 
     // Logic
     private List<Vector2Int> _availableMoves = new List<Vector2Int>();
@@ -50,8 +68,12 @@ public class Chessboard : MonoBehaviour
     private SpecialMove _specialMove;
     private List<Vector2Int[]> _moveList = new List<Vector2Int[]>();
 
+
+    public TextMeshPro statusText;
+
     private void Awake()
     {
+        m_RaycastManager = GetComponent<ARRaycastManager>();
         _isWhiteTurn = true;
 
         GenerateAllTiles(tileSize, TILE_COUNT_X, TILE_COUNT_Y);
@@ -61,114 +83,123 @@ public class Chessboard : MonoBehaviour
 
     private void Update()
     {
-        if (!_currentCamera)
+        if (Input.touchCount > 0)
         {
-            _currentCamera = Camera.main;
-            return;
-        }
-
-        RaycastHit info;
-        var ray = _currentCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out info, 100,
-                LayerMask.GetMask("Tile", "Hover", "Highlight")))
-        {
-            // Get the index of the tiles I've hit
-            var hitPosition = LookupTileIndex(info.transform.gameObject);
-
-            // If we're hovering a tile agter not hovering any tiles
-            if (_currentHover == -Vector2Int.one)
+            var touch = Input.GetTouch(0);
+            var touchPosition = touch.position;
+            if (touch.phase is TouchPhase.Began)
             {
-                _currentHover = hitPosition;
-                _tiles[hitPosition.x, hitPosition.y].layer =
-                    LayerMask.NameToLayer("Hover");
-            }
-
-            // If we were already hovering a tile, change the previous one
-            if (_currentHover != hitPosition)
-            {
-                _tiles[_currentHover.x, _currentHover.y].layer =
-                    (ContainsValidMove(ref _availableMoves, _currentHover))
-                        ? LayerMask.NameToLayer("Highlight")
-                        : LayerMask.NameToLayer("Tile");
-                _currentHover = hitPosition;
-                _tiles[hitPosition.x, hitPosition.y].layer =
-                    LayerMask.NameToLayer("Hover");
-            }
-
-            // If we press down on the mouse
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (_chessPieces[hitPosition.x, hitPosition.y] != null)
+                RaycastHit info;
+                if (Camera.main == null)
                 {
-                    // Is our turn
-                    if ((_chessPieces[hitPosition.x, hitPosition.y].team == 0 &&
-                         _isWhiteTurn) ||
-                        (_chessPieces[hitPosition.x, hitPosition.y].team == 1 &&
-                         !_isWhiteTurn))
+                    return;
+                }
+
+                var ray = Camera.main.ScreenPointToRay(touchPosition);
+            //    statusText.text = "position: " + touch.position.ToString();
+
+                if (Physics.Raycast(ray, out info, 100,
+                        LayerMask.GetMask("Tile", "Hover", "Highlight")))
+                {
+                    // Get the index of the tiles I've hit
+                    var hitPosition = LookupTileIndex(info.transform.gameObject);
+
+                    // If we're hovering a tile agter not hovering any tiles
+                    if (_currentHover == -Vector2Int.one)
                     {
-                        _currentlyDragging =
-                            _chessPieces[hitPosition.x, hitPosition.y];
+                        _currentHover = hitPosition;
+                        _tiles[hitPosition.x, hitPosition.y].layer =
+                            LayerMask.NameToLayer("Hover");
+                    }
 
-                        // Get a list of where I can go, highlight as well
-                        _availableMoves =
-                            _currentlyDragging.GetAvailableMoves(
-                                ref _chessPieces, TILE_COUNT_X, TILE_COUNT_Y);
-                        // Get a list of special move
-                        _specialMove =
-                            _currentlyDragging.GetSpecialMove(ref _chessPieces,
-                                ref _moveList, ref _availableMoves);
+                    // If we were already hovering a tile, change the previous one
+                    if (_currentHover != hitPosition)
+                    {
+                        _tiles[_currentHover.x, _currentHover.y].layer =
+                            (ContainsValidMove(ref _availableMoves, _currentHover))
+                                ? LayerMask.NameToLayer("Highlight")
+                                : LayerMask.NameToLayer("Tile");
+                        _currentHover = hitPosition;
+                        _tiles[hitPosition.x, hitPosition.y].layer =
+                            LayerMask.NameToLayer("Hover");
+                    }
 
-                        PreventCheck();
-                        HighlightTiles();
+                    // If we press down on the mouse
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        if (_chessPieces[hitPosition.x, hitPosition.y] != null)
+                        {
+                            // Is our turn
+                            if ((_chessPieces[hitPosition.x, hitPosition.y].team == 0 &&
+                                 _isWhiteTurn) ||
+                                (_chessPieces[hitPosition.x, hitPosition.y].team == 1 &&
+                                 !_isWhiteTurn))
+                            {
+                                _currentlyDragging =
+                                    _chessPieces[hitPosition.x, hitPosition.y];
+
+                                // Get a list of where I can go, highlight as well
+                                _availableMoves =
+                                    _currentlyDragging.GetAvailableMoves(
+                                        ref _chessPieces, TILE_COUNT_X, TILE_COUNT_Y);
+                                // Get a list of special move
+                                _specialMove =
+                                    _currentlyDragging.GetSpecialMove(ref _chessPieces,
+                                        ref _moveList, ref _availableMoves);
+
+                                PreventCheck();
+                                HighlightTiles();
+                            }
+                        }
+                    }
+
+                    // If we releasing mouse button
+                    if (_currentlyDragging != null && touch.phase == TouchPhase.Ended)
+                    {
+                        var previousPosition = new Vector2Int(
+                            _currentlyDragging.currentX, _currentlyDragging.currentY);
+                        var validMove = MoveTo(_currentlyDragging, hitPosition.x,
+                            hitPosition.y);
+                        if (!validMove)
+                            _currentlyDragging.SetPosition(
+                                GetTileCenter(previousPosition.x, previousPosition.y));
+
+                        _currentlyDragging = null;
+                        RemoveHighlightTiles();
                     }
                 }
+                else
+                {
+                    if (_currentHover != -Vector2Int.one)
+                    {
+                        _tiles[_currentHover.x, _currentHover.y].layer =
+                            (ContainsValidMove(ref _availableMoves, _currentHover))
+                                ? LayerMask.NameToLayer("Highlight")
+                                : LayerMask.NameToLayer("Tile");
+
+                        _currentHover = -Vector2Int.one;
+                    }
+
+                    if (_currentlyDragging && touch.phase == TouchPhase.Ended)
+                    {
+                        _currentlyDragging.SetPosition(GetTileCenter(
+                            _currentlyDragging.currentX,
+                            _currentlyDragging.currentY));
+                        _currentlyDragging = null;
+                        RemoveHighlightTiles();
+                    }
+                }
+
+                // If we are dragging a piece
+                if (_currentlyDragging)
+                {
+                    var horizontalPlane = new Plane(Vector3.up, Vector3.up * yOffset);
+                    var distance = 0.0f;
+                    if (horizontalPlane.Raycast(ray, out distance))
+                        _currentlyDragging.SetPosition(ray.GetPoint(distance) +
+                                                       Vector3.up * dragOffset);
+                }
             }
-
-            // If we releasing mouse button
-            if (_currentlyDragging != null && Input.GetMouseButtonUp(0))
-            {
-                var previousPosition = new Vector2Int(
-                    _currentlyDragging.currentX, _currentlyDragging.currentY);
-                var validMove = MoveTo(_currentlyDragging, hitPosition.x,
-                    hitPosition.y);
-                if (!validMove)
-                    _currentlyDragging.SetPosition(
-                        GetTileCenter(previousPosition.x, previousPosition.y));
-
-                _currentlyDragging = null;
-                RemoveHighlightTiles();
-            }
-        }
-        else
-        {
-            if (_currentHover != -Vector2Int.one)
-            {
-                _tiles[_currentHover.x, _currentHover.y].layer =
-                    (ContainsValidMove(ref _availableMoves, _currentHover))
-                        ? LayerMask.NameToLayer("Highlight")
-                        : LayerMask.NameToLayer("Tile");
-
-                _currentHover = -Vector2Int.one;
-            }
-
-            if (_currentlyDragging && Input.GetMouseButtonUp(0))
-            {
-                _currentlyDragging.SetPosition(GetTileCenter(
-                    _currentlyDragging.currentX,
-                    _currentlyDragging.currentY));
-                _currentlyDragging = null;
-                RemoveHighlightTiles();
-            }
-        }
-
-        // If we are dragging a piece
-        if (_currentlyDragging)
-        {
-            var horizontalPlane = new Plane(Vector3.up, Vector3.up * yOffset);
-            var distance = 0.0f;
-            if (horizontalPlane.Raycast(ray, out distance))
-                _currentlyDragging.SetPosition(ray.GetPoint(distance) +
-                                               Vector3.up * dragOffset);
         }
     }
 

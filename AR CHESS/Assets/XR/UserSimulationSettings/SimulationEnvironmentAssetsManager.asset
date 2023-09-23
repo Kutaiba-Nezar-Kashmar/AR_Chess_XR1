@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: SimulationEnvironmentAssetsManager
   m_EditorClassIdentifier: 
   m_EnvironmentPrefabPaths:
+  - Assets/UnityXRContent/ARFoundation/SimulationEnvironments/Kitchen/Kitchen_13ftx9ft.prefab
+  - Assets/UnityXRContent/ARFoundation/SimulationEnvironments/Kitchen/Kitchen_17ftx16ft.prefab
+  - Assets/UnityXRContent/ARFoundation/SimulationEnvironments/Kitchen/Kitchen_25ftx16ft.prefab
   - Packages/com.unity.xr.arfoundation/Assets/Prefabs/DefaultSimulationEnvironment.prefab
   m_FallbackAtEndOfList: 1
