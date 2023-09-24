@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Pawn : ChessPiece
 {
+    public override Vector3 SetPieceSize()
+    {
+        return new Vector3(0.30f, 0.30f, 0.31f);
+    }
+    
     public override List<Vector2Int> GetAvailableMoves(ref ChessPiece[,] board,
         int tileCountX, int tileCountY)
     {

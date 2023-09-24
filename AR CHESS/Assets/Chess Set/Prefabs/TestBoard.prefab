@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 6726996209336120031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.45053977, y: -0.095888875, z: 0.40096033}
-  m_LocalScale: {x: 8, y: 1, z: 8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.234, y: 0.022, z: 0.23}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,10 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9511cb7e5583a0e47b1b064d9ce60843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dark: {fileID: 2100000, guid: 19a7f7dd4f56bdb4cbbd019b9a6bbf26, type: 2}
-  light: {fileID: 8808940753066210417, guid: de4da3906a001624fabcc7838ddf2eb4, type: 3}
-  tileSize: 1
-  yOffset: 0.2
+  tileMaterial: {fileID: 2100000, guid: d15897a066fc1bd4e873db20d70da822, type: 2}
+  tileSize: 0.1
+  yOffset: 0
   boardCenter: {x: 0, y: 0, z: 0}
   prefabs:
   - {fileID: 1000014207659374, guid: 61ed95d5d9afc0842b0c4d0c96678d38, type: 3}

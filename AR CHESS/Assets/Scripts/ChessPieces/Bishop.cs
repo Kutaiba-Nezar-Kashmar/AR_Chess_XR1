@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Bishop : ChessPiece
 {
+    public override Vector3 SetPieceSize()
+    {
+        return new Vector3(0.30f, 0.30f, 0.5f);
+    }
+
     public override List<Vector2Int> GetAvailableMoves(ref ChessPiece[,] board,
         int tileCountX, int tileCountY)
     {

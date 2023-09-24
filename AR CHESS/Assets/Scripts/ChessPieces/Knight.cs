@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Knight : ChessPiece
 {
+    public override Vector3 SetPieceSize()
+    {
+        return new Vector3(0.30f, 0.30f, 0.4f);
+    }
+    
     public override List<Vector2Int> GetAvailableMoves(ref ChessPiece[,] board,
         int tileCountX, int tileCountY)
     {

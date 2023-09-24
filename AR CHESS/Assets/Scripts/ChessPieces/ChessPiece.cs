@@ -21,7 +21,6 @@ public class ChessPiece : MonoBehaviour
     public ChessPieceType type;
 
     private Vector3 _desiredPosition;
-    private Vector3 _desiredScale = new(2.5f,2.5f,2.5f);
 
     // This does not work for now because he is using different asset (not important and can fix later)
     /*private void Start()
@@ -33,8 +32,13 @@ public class ChessPiece : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, _desiredPosition,
             Time.deltaTime * 10);
-        transform.localScale = Vector3.Lerp(transform.localScale, _desiredScale,
+        transform.localScale = Vector3.Lerp(transform.localScale, SetPieceSize(),
             Time.deltaTime * 10);
+    }
+
+    public virtual Vector3 SetPieceSize()
+    {
+        return new Vector3();
     }
 
     public virtual void SetPosition(Vector3 position, bool force = false)
@@ -52,9 +56,10 @@ public class ChessPiece : MonoBehaviour
 
     public virtual void SetScale(Vector3 scale, bool force = false)
     {
-        _desiredScale = scale;
+        var sc = SetPieceSize();
+        sc = scale;
         if (force)
-            transform.localScale = _desiredScale;
+            transform.localScale = sc;
     }
 
     public virtual List<Vector2Int> GetAvailableMoves(ref ChessPiece[,] board,

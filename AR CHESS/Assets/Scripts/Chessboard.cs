@@ -16,7 +16,7 @@ public enum SpecialMove
 
 public class Chessboard : MonoBehaviour
 {
-    void HandleFingerTap(Lean.Touch.LeanFinger finger)
+    /*void HandleFingerTap(Lean.Touch.LeanFinger finger)
     {
         Debug.Log("You just tapped the screen with finger " + finger.Index +
                   " at " + finger.ScreenPosition);
@@ -30,11 +30,11 @@ public class Chessboard : MonoBehaviour
     private void OnDisable()
     {
         Lean.Touch.LeanTouch.OnFingerTap -= HandleFingerTap;
-    }
+    }*/
 
     [Header("Art")] [SerializeField] private Material tileMaterial;
 
-    [SerializeField] private float tileSize = 1.0f;
+    private float tileSize;
 
     // Used to keep track of the height of the board 
     [SerializeField] private float yOffset = 0.2f;
@@ -74,7 +74,9 @@ public class Chessboard : MonoBehaviour
 
     private void Awake()
     {
-        m_RaycastManager = GetComponent<ARRaycastManager>();
+        // 8 * 8 board, so it does not matter which dimension we use
+        tileSize = transform.transform.localScale.x / 8;
+        //m_RaycastManager = GetComponent<ARRaycastManager>();
         _isWhiteTurn = true;
 
         GenerateAllTiles(tileSize, TILE_COUNT_X, TILE_COUNT_Y);
@@ -302,8 +304,10 @@ public class Chessboard : MonoBehaviour
 
     private ChessPiece SpawnSinglePiece(ChessPieceType type, int team)
     {
+        var rotation = Quaternion.Euler(-90f, 0f, 0f);
         // Type -1 because we have non at index 0 in the enum, so to be in sync with array we use - 1
-        var cp = Instantiate(prefabs[(int) type - 1], transform)
+        var cp = Instantiate(prefabs[(int) type - 1], transform.position,
+                rotation)
             .GetComponent<ChessPiece>();
         cp.type = type;
         cp.team = team;
