@@ -6,25 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7299a485-6da7-4f2a-8301-5b807fd14553" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AR CHESS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AR CHESS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Bishop Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Bishop Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Board Play Surface.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Board Play Surface.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess King Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess King Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Knight Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Knight Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Pawn Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Pawn Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Queen Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Queen Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Rook Black.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/Chess Rook Black.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/TestBoard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chess Set/Prefabs/TestBoard.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Bishop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Bishop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/ChessPiece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/ChessPiece.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/King.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/King.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Knight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Knight.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Queen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Queen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Rock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChessPieces/Rock.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chessboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Chessboard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +123,7 @@
       <workItem from="1695306299070" duration="1538000" />
       <workItem from="1695456563802" duration="7366000" />
       <workItem from="1695466235508" duration="7551000" />
-      <workItem from="1695540855428" duration="12532000" />
+      <workItem from="1695540855428" duration="16449000" />
     </task>
     <servers />
   </component>
